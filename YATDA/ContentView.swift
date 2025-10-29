@@ -10,14 +10,42 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var reminders = Reminder.samples
+    @State private var isAddReminderDialogPresented = false
+    private func presentAddReminderView() {
+        isAddReminderDialogPresented.toggle()
+    }
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
+        List($reminders) { $reminder in
+            HStack {
+                Image(systemName: reminder.isCompleted
+                      ? "largecircle.fill.circle"
+                      : "circle")
                 .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+                .foregroundColor(.accentColor)
+                .onTapGesture {
+                    reminder.isCompleted.toggle()
+                }
+                Text(reminder.title)
+            }
         }
-        .padding()
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                Button(action: presentAddReminderView) {
+                    HStack {
+                        Image(systemName: "plus.circle.fill")
+                        Text("New Reminder")
+                    }
+                }
+                .buttonStyle(.borderedProminent)
+                Spacer()
+            }
+        }
+        .sheet(isPresented: $isAddReminderDialogPresented) {
+            AddReminderView { reminder in
+                reminders.append(reminder)
+            }
+        }
     }
 }
 

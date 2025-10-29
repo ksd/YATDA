@@ -14,6 +14,7 @@ struct YATDAApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .navigationTitle("Reminders")
         }
     }
 }
