@@ -12,10 +12,7 @@ import FirebaseFirestore
 
 class FirebaseStorage: StorageMethod {
 
-    @ObservationIgnored
     private let dbRef = Firestore.firestore()
-
-    @ObservationIgnored
     private var listenerRegistration: ListenerRegistration?
 
     func create<T:Codable>(element: T) throws {

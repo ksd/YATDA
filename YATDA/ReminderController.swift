@@ -1,11 +1,11 @@
 // ReminderController.swift
-// Project: YATDA 
+// Project: YATDA
 // Compiled with Swift version 6.0
 //
 // Created by ksd/Kaj Schermer Didriksen on 21/11/2025 at 08.16.
 // Copyright © 2025 ksd. All rights reserved.
 //
-// 
+//
 
 import Foundation
 

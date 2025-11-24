@@ -13,7 +13,7 @@ import Foundation
 /// Implementering af Dependency Inversion Principle i SOLID &
 /// Interface Segregation Principle fra SOLID
 protocol StorageMethod {
-    func create<T: Codable>(element: T) throws
+    func create<T: Codable & Identifiable>(element: T) throws
     //func retrieve<T: Codable & Identifiable>(_ id: T.ID) throws -> T? where T.ID == String?
     func update<T: Codable & Identifiable>(_ element: T) throws where T.ID == String?
     func delete<T: Identifiable>(_ element : T) async throws where T.ID == String?
