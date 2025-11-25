@@ -22,6 +22,7 @@ class AuthController {
     var authenticationState: AuthenticationState = .unauthenticated
     var user: User?
     var displayName = ""
+    @ObservationIgnored
     var authStateHandler: AuthStateDidChangeListenerHandle?
 
     init(){

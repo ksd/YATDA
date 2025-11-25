@@ -13,8 +13,11 @@ import Foundation
 class ReminderController {
     var reminders: [Reminder] = []
 
+
     ///Dependency Inversion Princip fra SOLID
+    @ObservationIgnored
     let storageService: StorageMethod
+    @ObservationIgnored
     let storageListnerService: StorageListner?
 
     init(storageService: StorageMethod, storageListner: StorageListner) {
